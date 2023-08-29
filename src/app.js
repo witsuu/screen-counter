@@ -15,7 +15,7 @@ function screenCounter(resize = false) {
 
     style.textContent = `
         .screen-counter{
-            position:absolute;
+            position:fixed;
             top:3rem;
             right:3rem;
             display:flex;
