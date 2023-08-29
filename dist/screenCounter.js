@@ -9,7 +9,7 @@ var screenCounter = (function () {
             const h = document.querySelector(".height-text");
 
             w.textContent = `W : ${body.offsetWidth} px`;
-            h.textContent = `H  : ${body.offsetHeight} px`;
+            h.textContent = `H  : ${body.clientHeight} px`;
 
             return 0
         }
@@ -19,25 +19,23 @@ var screenCounter = (function () {
         style.textContent = `
         .screen-counter{
             position:fixed;
-            top:3rem;
-            right:3rem;
+            top:0;
+            right:0.5rem;
             display:flex;
             flex-direction:column;
             align-items:flex-start;
-            gap:1rem;
             color: #16FF00;
             font-family: "Nunito Sans",sans-serif;
             z-index:1300;
         }
         span{
-            font-size: 20px;
+            font-size: 14px;
             font-weight:600;
         }
 
         @media (max-width:767px){
-            .screen-counter{
-                top:2rem;
-                right:2rem;
+            span{
+                font-size:12px;
             }
         }
     `;
@@ -48,7 +46,7 @@ var screenCounter = (function () {
         span1.textContent = `W : ${body.offsetWidth} px`;
         span1.classList.add('width-text');
         const span2 = document.createElement("span");
-        span2.textContent = `H  : ${body.offsetHeight} px`;
+        span2.textContent = `H : ${body.clientHeight} px`;
         span2.classList.add('height-text');
 
         newEl.classList.add("screen-counter");
