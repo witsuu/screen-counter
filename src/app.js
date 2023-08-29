@@ -24,10 +24,18 @@ function screenCounter(resize = false) {
             gap:1rem;
             color: #16FF00;
             font-family: "Nunito Sans",sans-serif;
+            z-index:1300;
         }
         span{
             font-size: 20px;
             font-weight:600;
+        }
+
+        @media (max-width:767px){
+            .screen-counter{
+                top:2rem;
+                right:2rem;
+            }
         }
     `
     document.head.appendChild(style)
