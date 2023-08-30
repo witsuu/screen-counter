@@ -8,8 +8,8 @@ var screenCounter = (function () {
             const w = document.querySelector(".width-text");
             const h = document.querySelector(".height-text");
 
-            w.textContent = `W : ${body.offsetWidth} px`;
-            h.textContent = `H  : ${body.clientHeight} px`;
+            w.textContent = 'W : ' + body.offsetWidth + "px";
+            h.textContent = 'H : ' + body.clientHeight + "px";
 
             return 0
         }
@@ -43,16 +43,35 @@ var screenCounter = (function () {
 
         const newEl = document.createElement("div");
         const span1 = document.createElement("span");
-        span1.textContent = `W : ${body.offsetWidth} px`;
+        span1.textContent = 'WIDTH : ' + body.offsetWidth + "px";
         span1.classList.add('width-text');
         const span2 = document.createElement("span");
-        span2.textContent = `H : ${body.clientHeight} px`;
+        span2.textContent = 'HEIGHT : ' + body.clientHeight + "px";
         span2.classList.add('height-text');
+        const span3 = document.createElement("span");
+        span3.classList.add('fps-counter');
 
         newEl.classList.add("screen-counter");
-        newEl.append(span1, span2);
+        newEl.append(span1, span2, span3);
 
         body.appendChild(newEl);
+
+        // fps variable
+        var startTime = Date.now();
+        var frame = 0;
+
+        function tick() {
+            var time = Date.now();
+            frame++;
+            if (time - startTime > 1000) {
+                span3.textContent = `FPS : ${(frame / ((time - startTime) / 1000)).toFixed(1)}`;
+                startTime = time;
+                frame = 0;
+            }
+            window.requestAnimationFrame(tick);
+        }
+
+        tick();
     }
 
     window.onresize = () => screenCounter(true);
