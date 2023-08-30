@@ -69,6 +69,8 @@ var screenCounter = (function () {
         tick();
     }
 
+    screenCounter();
+
     window.onresize = () => screenCounter(true);
 
     return screenCounter;

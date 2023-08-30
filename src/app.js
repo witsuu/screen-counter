@@ -66,6 +66,8 @@ function screenCounter(r = false) {
     tick()
 }
 
+screenCounter()
+
 window.onresize = () => screenCounter(true)
 
 export default screenCounter
