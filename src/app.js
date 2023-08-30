@@ -1,7 +1,7 @@
-function screenCounter(resize = false) {
+function screenCounter(r = false) {
     const body = document.body
 
-    if (resize) {
+    if (r) {
         const w = document.querySelector(".width-text")
         const h = document.querySelector(".height-text")
 
