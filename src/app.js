@@ -5,8 +5,8 @@ function screenCounter(r = false) {
         const w = document.querySelector(".width-text")
         const h = document.querySelector(".height-text")
 
-        w.textContent = 'W : ' + window.offsetWidth + "px"
-        h.textContent = 'H : ' + window.offsetHeight + "px"
+        w.textContent = 'W : ' + window.outerWidth + "px"
+        h.textContent = 'H : ' + window.outerHeight + "px"
 
         return 0
     }
@@ -40,8 +40,8 @@ function screenCounter(r = false) {
     const span3 = document.createElement("span")
     span3.classList.add('fps-counter')
 
-    span1.textContent = 'W : ' + window.offsetWidth + "px"
-    span2.textContent = 'H : ' + window.offsetHeight + "px"
+    span1.textContent = 'W : ' + window.outerWidth + "px"
+    span2.textContent = 'H : ' + window.outerHeight + "px"
 
     newEl.classList.add("screen-counter")
     newEl.append(span1, span2, span3)
