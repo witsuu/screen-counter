@@ -8,8 +8,10 @@ var screenCounter = (function () {
             const w = document.querySelector(".width-text");
             const h = document.querySelector(".height-text");
 
-            w.textContent = 'W : ' + body.offsetWidth + "px";
-            h.textContent = 'H : ' + body.clientHeight + "px";
+            setTimeout(() => {
+                w.textContent = 'W : ' + body.offsetWidth + "px";
+                h.textContent = 'H : ' + body.offsetHeight + "px";
+            }, 500);
 
             return 0
         }
@@ -43,10 +45,8 @@ var screenCounter = (function () {
 
         const newEl = document.createElement("div");
         const span1 = document.createElement("span");
-        span1.textContent = 'WIDTH : ' + body.offsetWidth + "px";
         span1.classList.add('width-text');
         const span2 = document.createElement("span");
-        span2.textContent = 'HEIGHT : ' + body.clientHeight + "px";
         span2.classList.add('height-text');
         const span3 = document.createElement("span");
         span3.classList.add('fps-counter');
@@ -55,6 +55,11 @@ var screenCounter = (function () {
         newEl.append(span1, span2, span3);
 
         body.appendChild(newEl);
+
+        window.onload = function () {
+            span1.textContent = 'W : ' + body.offsetWidth + "px";
+            span2.textContent = 'H : ' + body.offsetHeight + "px";
+        };
 
         // fps variable
         var startTime = Date.now();
